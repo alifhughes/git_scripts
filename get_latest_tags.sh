@@ -13,8 +13,8 @@ for directory in $directories; do
     # Change to the repository directory
     cd "$directory"
 
-    # Perform a git fetch to get the latest information
-    git fetch --tags
+    # Perform a git fetch to get the latest information (hide output)
+    git fetch --tags >/dev/null 2>&1
 
     # Get the latest git tag
     latest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
@@ -32,3 +32,4 @@ for directory in $directories; do
     cd ..
   fi
 done
+
